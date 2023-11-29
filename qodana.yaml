@@ -1,7 +1,5 @@
 version: "1.0"
 
-ide: QDNET
-
 profile:
   name: qodana.recommended
 
@@ -10,7 +8,8 @@ failThreshold: 1
 exclude:
   - name: NotAccessedPositionalProperty.Global
 
-bootstrap: |
+bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
+  bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet |
   sh ./restore.sh
 
 dotnet:
