@@ -9,7 +9,7 @@ on:
 
 jobs:
   qodana:
-    runs-on: self-ubuntu
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
@@ -20,6 +20,6 @@ jobs:
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         with:
-          args: --ide,QDNET
+          args: --linter,jetbrains/qodana-dotnet:2023.3-eap
           pr-mode: false
           upload-result: true
